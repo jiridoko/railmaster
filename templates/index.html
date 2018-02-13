@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row">
+		<div class="twelve columns" style="margin-top: 3%">
+			<h4>Railway</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="twelve columns">
+		</div>
+	</div>
+	<table class="u-full-width">
+		<thead>
+			<!-- intentionally left blank -->
+		</thead>
+		<tbody>
+			{% for nameL, nameR, idL, idR in turnout_list %}
+				<tr>
+					<td>
+						<!--<button onclick="window.location.href='/arg/{{ idMinus }}'"><h5>-</h5></button>-->
+						<a href='/turnout/{{ idL }}' target="_self"><img src="/static/{{ nameL }}" alt="{{ nameL }}" height="64" width="64" /></a>
+					</td><td>
+						<a href='/turnout/{{ idR }}' target="_self"><img src="/static/{{ nameR }}" alt="{{ nameR }}" height="64" width="64" /></a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
