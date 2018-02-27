@@ -39,7 +39,7 @@ def index():
 def serve_static(path):
     return send_from_directory('static', path)
 
-@app.route('/turnout/<path:path>/')
+@app.route('/turnout/<path:path>/', methods=["GET", "POST"])
 def turnout_call(path):
     switch(int(path))
     return redirect("/", code=302)
